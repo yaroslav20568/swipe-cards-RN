@@ -1,8 +1,9 @@
 import { ReactNode } from 'react';
-import { StatusBar } from 'expo-status-bar';
 import { ScrollView, StyleSheet, View } from 'react-native';
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
+import { StatusBar } from 'expo-status-bar';
 import { LinearGradient } from 'expo-linear-gradient';
+import { s } from './styles';
 
 interface IProps {
 	children: ReactNode;
@@ -11,30 +12,16 @@ interface IProps {
 export const AppLayout = ({ children }: IProps) => {
 	return (
 		<SafeAreaProvider>
-			<SafeAreaView style={styles.container}>
-				<View>
+			<SafeAreaView style={s.container}>
+				<View style={s.viewWrapper}>
 					<LinearGradient
-						colors={['#bd7078', '#3a2124', '#000000']}
+						colors={['#bd7078', '#3a2124', '#0f0809']}
 						style={StyleSheet.absoluteFill}
 					/>
-					<ScrollView contentContainerStyle={styles.scrollContent}>{children}</ScrollView>
+					<ScrollView contentContainerStyle={s.scrollContent}>{children}</ScrollView>
 				</View>
 				<StatusBar style="auto" />
 			</SafeAreaView>
 		</SafeAreaProvider>
 	);
 };
-
-const styles = StyleSheet.create({
-	container: {
-		flex: 1,
-		backgroundColor: '#fff',
-	},
-	scrollContent: {
-		flexGrow: 1,
-		alignItems: 'center',
-		justifyContent: 'center',
-		paddingVertical: 15,
-		paddingHorizontal: 20,
-	},
-});
