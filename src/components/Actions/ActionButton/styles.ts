@@ -8,5 +8,6 @@ export const s = StyleSheet.create({
 		borderRadius: '50%',
 		alignItems: 'center',
 		justifyContent: 'center',
+		borderWidth: 2,
 	},
 });

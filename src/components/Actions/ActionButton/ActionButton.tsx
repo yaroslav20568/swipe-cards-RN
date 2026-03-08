@@ -29,7 +29,8 @@ export const ActionButton = ({ action }: IProps) => {
 
 	return (
 		<Pressable onPressIn={handlePressIn} onPressOut={handlePressOut} onPress={action.onPress}>
-			<Animated.View style={[s.actionButton, { transform: [{ scale }] }]}>
+			<Animated.View
+				style={[s.actionButton, { transform: [{ scale }], borderColor: action.icon.color }]}>
 				<AntDesign {...action.icon} />
 			</Animated.View>
 		</Pressable>
