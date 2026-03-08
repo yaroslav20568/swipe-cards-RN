@@ -1,8 +1,7 @@
 import { View, Text, Image, StyleSheet } from 'react-native';
-import React from 'react';
+import { LinearGradient } from 'expo-linear-gradient';
 import { IPerson } from '@/types';
 import { s } from './styles';
-import { LinearGradient } from 'expo-linear-gradient';
 
 interface IProps extends Omit<IPerson, 'id'> {}
 

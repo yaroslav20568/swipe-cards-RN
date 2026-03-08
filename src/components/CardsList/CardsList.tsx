@@ -1,5 +1,5 @@
-import { View, Text, FlatList } from 'react-native';
 import React from 'react';
+import { FlatList } from 'react-native';
 import { persons } from '@/const';
 import { Card } from '@/components/Card';
 
