@@ -15,7 +15,7 @@ export const AppLayout = ({ children }: IProps) => {
 			<SafeAreaView style={s.container}>
 				<View style={s.viewWrapper}>
 					<LinearGradient
-						colors={['#bd7078', '#3a2124', '#0f0809']}
+						colors={['#bd7078', '#6d5053', '#5c3236']}
 						style={StyleSheet.absoluteFill}
 					/>
 					<ScrollView contentContainerStyle={s.scrollContent}>{children}</ScrollView>
