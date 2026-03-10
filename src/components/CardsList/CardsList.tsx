@@ -1,9 +1,8 @@
-import React, { useState, useMemo, Ref } from 'react';
+import React, { Ref } from 'react';
 import { View } from 'react-native';
-import { persons } from '@/const';
 import { Card } from '@/components/Card';
 import { s } from './styles';
-import { shuffleArray } from '@/lib';
+import { useCards } from '@/lib';
 import { GestureLayout, IGestureLayoutRef } from '@/ui';
 
 interface IProps {
@@ -11,12 +10,7 @@ interface IProps {
 }
 
 export const CardsList = ({ ref }: IProps) => {
-	const shuffledPersons = useMemo(() => shuffleArray([...persons]), []);
-	const [activeIndex, setActiveIndex] = useState(0);
-
-	const handleSwipe = () => {
-		setActiveIndex((prev) => prev + 1);
-	};
+	const { shuffledPersons, activeIndex, handleNextCard } = useCards();
 
 	return (
 		<View style={[s.containerRow, { width: '100%', height: 340 }]}>
@@ -39,8 +33,8 @@ export const CardsList = ({ ref }: IProps) => {
 						}}>
 						<GestureLayout
 							ref={isTopCard ? ref : null}
-							onSwipeLeft={handleSwipe}
-							onSwipeRight={handleSwipe}>
+							onSwipeLeft={handleNextCard}
+							onSwipeRight={handleNextCard}>
 							<Card {...item} />
 						</GestureLayout>
 					</View>
