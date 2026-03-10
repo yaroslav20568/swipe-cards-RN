@@ -20,11 +20,12 @@ export interface IGestureLayoutRef {
 interface IProps {
 	children: ReactNode;
 	ref: Ref<IGestureLayoutRef>;
+	isTopCard: boolean;
 	onSwipeLeft?: () => void;
 	onSwipeRight?: () => void;
 }
 
-export const GestureLayout = ({ children, ref, onSwipeLeft, onSwipeRight }: IProps) => {
+export const GestureLayout = ({ children, ref, onSwipeLeft, isTopCard, onSwipeRight }: IProps) => {
 	const isSwiping = useSharedValue(false);
 	const translateX = useSharedValue(0);
 	const translateY = useSharedValue(0);
@@ -61,6 +62,7 @@ export const GestureLayout = ({ children, ref, onSwipeLeft, onSwipeRight }: IPro
 	});
 
 	const pan = Gesture.Pan()
+		.enabled(isTopCard)
 		.onUpdate((event) => {
 			translateX.value = event.translationX;
 			translateY.value = event.translationY;

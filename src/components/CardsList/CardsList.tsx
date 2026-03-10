@@ -33,6 +33,7 @@ export const CardsList = ({ ref }: IProps) => {
 						}}>
 						<GestureLayout
 							ref={isTopCard ? ref : null}
+							isTopCard={isTopCard}
 							onSwipeLeft={handleNextCard}
 							onSwipeRight={handleNextCard}>
 							<Card {...item} />
