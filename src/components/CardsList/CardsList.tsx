@@ -13,7 +13,7 @@ export const CardsList = ({ ref }: IProps) => {
 	const { shuffledPersons, activeIndex, handleNextCard } = useCards();
 
 	return (
-		<View style={[s.containerRow, { width: '100%', height: 325 }]}>
+		<View style={s.containerRow}>
 			{shuffledPersons.map((item, index) => {
 				if (index < activeIndex || index > activeIndex + 3) {
 					return null;
@@ -25,12 +25,14 @@ export const CardsList = ({ ref }: IProps) => {
 				return (
 					<View
 						key={item.id}
-						style={{
-							position: 'absolute',
-							top: displayIndex * 15,
-							zIndex: 100 - index,
-							transform: [{ scale: Math.max(1 - displayIndex * 0.02, 0) }],
-						}}>
+						style={[
+							s.cardWrapper,
+							{
+								top: displayIndex * 15,
+								zIndex: 100 - index,
+								transform: [{ scale: Math.max(1 - displayIndex * 0.02, 0) }],
+							},
+						]}>
 						<GestureLayout
 							ref={isTopCard ? ref : null}
 							isTopCard={isTopCard}
