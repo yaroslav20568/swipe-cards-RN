@@ -12,7 +12,7 @@ interface IProps {
 
 export const AppLayout = ({ children }: IProps) => {
 	return (
-		<GestureHandlerRootView style={{ flex: 1 }}>
+		<GestureHandlerRootView>
 			<SafeAreaProvider>
 				<SafeAreaView style={s.container}>
 					<View style={s.viewWrapper}>

@@ -1,10 +1,9 @@
 import { useMemo, useRef } from 'react';
-import { Text, View } from 'react-native';
-import { AppLayout, IGestureLayoutRef } from '@/ui';
+import { AppLayout, IGestureLayoutRef, EmptyData } from '@/ui';
 import { Actions, CardsList, IAction } from '@/components';
 import { useCards, CardsProvider } from '@/lib';
 
-function Main() {
+const Main = () => {
 	const cardsRef = useRef<IGestureLayoutRef>(null);
 	const { hasMoreCards } = useCards();
 
@@ -30,13 +29,11 @@ function Main() {
 					<Actions actions={actions} />
 				</>
 			) : (
-				<View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-					<Text style={{ color: 'white', fontSize: 20 }}>No more cards</Text>
-				</View>
+				<EmptyData />
 			)}
 		</AppLayout>
 	);
-}
+};
 
 export default function App() {
 	return (

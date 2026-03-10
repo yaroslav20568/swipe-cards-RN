@@ -13,7 +13,7 @@ export const CardsList = ({ ref }: IProps) => {
 	const { shuffledPersons, activeIndex, handleNextCard } = useCards();
 
 	return (
-		<View style={[s.containerRow, { width: '100%', height: 340 }]}>
+		<View style={[s.containerRow, { width: '100%', height: 325 }]}>
 			{shuffledPersons.map((item, index) => {
 				if (index < activeIndex || index > activeIndex + 3) {
 					return null;
