@@ -37,8 +37,8 @@ export const persons: Array<IPerson> = [
 	},
 	{
 		id: 5,
-		firstName: 'Mia',
-		lastName: 'Khalifa',
+		firstName: 'Monika',
+		lastName: 'Andersen',
 		age: 26,
 		imageUrl: 'https://i.pinimg.com/736x/5d/b0/fa/5db0faeb76bca3b9b2a5deab14b3e6cf.jpg',
 		lastActivity: '1 hour ago',

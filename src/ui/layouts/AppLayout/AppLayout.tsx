@@ -1,5 +1,6 @@
 import { ReactNode } from 'react';
 import { ScrollView, StyleSheet, View } from 'react-native';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import { StatusBar } from 'expo-status-bar';
 import { LinearGradient } from 'expo-linear-gradient';
@@ -11,17 +12,19 @@ interface IProps {
 
 export const AppLayout = ({ children }: IProps) => {
 	return (
-		<SafeAreaProvider>
-			<SafeAreaView style={s.container}>
-				<View style={s.viewWrapper}>
-					<LinearGradient
-						colors={['#bd7078', '#6d5053', '#5c3236']}
-						style={StyleSheet.absoluteFill}
-					/>
-					<ScrollView contentContainerStyle={s.scrollContent}>{children}</ScrollView>
-				</View>
-				<StatusBar style="auto" />
-			</SafeAreaView>
-		</SafeAreaProvider>
+		<GestureHandlerRootView style={{ flex: 1 }}>
+			<SafeAreaProvider>
+				<SafeAreaView style={s.container}>
+					<View style={s.viewWrapper}>
+						<LinearGradient
+							colors={['#bd7078', '#6d5053', '#5c3236']}
+							style={StyleSheet.absoluteFill}
+						/>
+						<ScrollView contentContainerStyle={s.scrollContent}>{children}</ScrollView>
+					</View>
+					<StatusBar style="auto" />
+				</SafeAreaView>
+			</SafeAreaProvider>
+		</GestureHandlerRootView>
 	);
 };
